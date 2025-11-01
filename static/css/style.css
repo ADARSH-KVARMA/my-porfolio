@@ -106,7 +106,7 @@ nav a:hover {
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: 0.3s ease;
     display: inline-block;
     text-decoration: none;
 }
@@ -137,8 +137,8 @@ nav a:hover {
     padding: 1rem 1.5rem;
     border-radius: 2rem;
     box-shadow: 0 0 15px rgba(181,101,247,0.3);
-    justify-content: center;
-}
+    justify-content: flex-start;
+} 
 
 .skills span {
     background-color: #0f0f1a;
@@ -161,17 +161,24 @@ nav a:hover {
     border-radius: 12px;
 }
 
+.hero-image {
+    /* NEW: Adjust flex basis to take up half the space on desktop/large tablet */
+    flex: 1 1 45%; 
+    text-align: right; /* Align image to the right */
+}
+
+.hero-text {
+     /* NEW: Adjust flex basis to take up half the space on desktop/large tablet */
+    flex: 1 1 45%; 
+}
+
 .hero-image img {
     max-width: 650px;
     width: 100%;
     border-radius: 20px;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
+
 
 footer {
     text-align: center;
@@ -193,12 +200,12 @@ footer {
     display: none;
 }
 
-/* Mobile Styling */
+/* --- Existing Mobile Styling (max-width: 760px) --- */
 @media screen and (max-width: 760px) {
+    /* ... (Existing hamburger/menu styles remain here) ... */
+
     .hamburger {
         display: flex;
-        
-
     }
 
     .menu {
@@ -238,6 +245,62 @@ footer {
     .hero {
         flex-direction: column;
         align-items: center;
+        text-align: center; /* Center text on mobile */
+        padding: 2rem 1rem; /* Reduced padding on mobile */
+        gap: 2rem;
+    }
+
+    .hero-text {
+        order: 1; /* Keep text first */
+    }
+
+    .hero-image {
+        display: none;
+        size: 0cap;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem; /* Significantly smaller text on mobile */
+        line-height: 1.1;
+    }
+
+    .buttons {
+        display: flex; /* Make buttons a flex container */
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 0.75rem; /* Add spacing between stacked buttons */
+        margin-top: 1.5rem;
+        align-items: center; /* Center the buttons */
+    }
+
+    .buttons .btn {
+        margin-right: 0; /* Remove right margin */
+        width: 100%; /* Make buttons take full width of container */
+        max-width: 250px; /* Optional: limit max width for better look */
+    }
+
+    .skills {
+        /* Center content and reduce padding on mobile */
+        justify-content: center;
+        padding: 1rem;
+        margin: 2rem auto;
+        width: 90%; /* Make it slightly narrower than the screen */
+        max-width: 350px; 
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .hero {
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+        /* The main hero content will still be side-by-side but with less padding */
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem; /* Slightly smaller for tablet */
+    }
+
+    .hero-image img {
+        max-width: 500px; /* Limit image size a bit more */
     }
 }
 

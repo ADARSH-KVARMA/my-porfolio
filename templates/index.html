@@ -22,5 +22,55 @@
     </div>
 </section>
 
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="about-text" data-aos="fade-right" data-aos-offset="200">
+      <h2 class="about-heading">About Me</h2>
+      <p class="about-intro">I’m a dual-degree student passionate about combining core engineering with the power of data. With a background in Metallurgical and Materials Engineering and a second degree in Data Science from IIT Madras, I thrive at the intersection of materials, computation, and intelligent systems. I enjoy building practical solutions—be it analyzing material behavior or developing data-driven web applications.</p>
+      <ul class="about-list">
+        <li data-aos="fade-up" data-aos-delay="100">🎓 Dual-degree student at VNIT Nagpur + IIT Madras (Data Science)</li>
+        <li data-aos="fade-up" data-aos-delay="200">🧪 Exploring AI/ML and it's applications</li>
+        <li data-aos="fade-up" data-aos-delay="300">🛠️ Projects in Python, Flask, Git, and data analytics</li>
+      </ul>
+    </div>
+    <div class="about-image" data-aos="zoom-in" data-aos-delay="400">
+      <img src="{{ url_for('static', filename='images/p.jpg') }}" alt="Profile Photo">
+    </div>
+  </div>
+</section>
 
+<section class="projects-section" id="projects" data-aos="fade-up">
+  <h2 class="section-heading">Projects</h2>
+  <div class="projects-grid">
+
+
+    <div class="project-card" data-aos="fade-right" data-aos-delay="200">
+      <h3 class="project-title">Virtual Teaching Assistant for TDS (IIT Madras)</h3>
+      <p class="project-desc">
+        A RAG-based virtual assistant for the IIT Madras B.S. Data Science TDS course, developed using Flask, GPT-4o-mini, and LangChain.
+        It answers student queries based on scraped Discourse threads and official materials, supports text/image inputs, and returns reference-linked answers.
+        Includes a web interface and JSON API to assist both students and TAs. <br><br>
+        <strong>Tools:</strong> Flask, OpenAI GPT-4o-mini, LangChain, Discourse Scraping, HTML/CSS<br>
+        <strong>Duration:</strong> May 2025 – Jun 2025
+      </p>
+      <a href="https://github.com/ADARSH-KVARMA/TDS-TA" class="project-link" target="_blank">GitHub</a>
+      <a href="https://drive.google.com/file/d/1y-XWJBuGTwF_MQ3X6gAZwS1bcl3Q2BGV/view?usp=drive_link" class="project-link" target="_blank">Demo Video</a>
+    </div>
+
+    <div class="project-card" data-aos="fade-left" data-aos-delay="300">
+      <h3 class="project-title">College Announcement & Resource Portal</h3>
+      <p class="project-desc">
+        A centralized platform to share academic announcements and subject-wise notes using real-time data from Google Sheets.
+        Designed with a clean UI using Flask and HTML/CSS. Over 100 students use it daily to access updates and shared resources.<br><br>
+        <strong>Tools:</strong> Flask, HTML, CSS, JavaScript, Google Sheets API, Google Studio<br>
+        <strong>Duration:</strong> Mar 2025 – Apr 2025
+      </p>
+      <a href="https://github.com/ADARSH-KVARMA/Student-Central-Announcements-Study-Hub" class="project-link" target="_blank">GitHub</a>
+      <a href="https://adarshvarma2025.pythonanywhere.com/" class="project-link" target="_blank">Visit</a>
+    </div>
+    
+    <a href="projects" class="project-link">More Projects</a>
+  </div>
+  
+</section>
 {% endblock %}
