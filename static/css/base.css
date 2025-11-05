@@ -1,0 +1,182 @@
+/* base.css - Global Styles, Layout, Navbar, and Footer */
+
+/* === Global Reset/Base Styles === */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #090909, #1c1c2d);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* === Navbar === */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0f0f1a;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #b565f7;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ccc;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Transition to X */
+#menu-toggle:checked + .hamburger .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#menu-toggle:checked + .hamburger .bar:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + .hamburger .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* Overlay for Mobile Menu */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 900;
+    display: none;
+}
+
+/* Utility Class */
+.glow {
+    box-shadow: 0 0 15px rgba(181,101,247,0.4);
+    border-radius: 12px;
+}
+
+/* Headings/Section Utility Styles (if used across multiple pages) */
+.section-heading {
+    font-size: 2.5rem;
+    color: #d8b4fe;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 6rem;
+    height: 4px;
+    background: #b565f7;
+    border-radius: 2px;
+}
+
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0f0f1a;
+    color: #aaa;
+    margin-top: 4rem;
+}
+
+/* === Keyframes === */
+@keyframes fly {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* === Media Queries (Desktop/Tablet) === */
+@media screen and (max-width: 1024px) {
+    /* Styles for tablets and smaller desktops that affect overall layout */
+}
+
+/* --- Mobile Styling (max-width: 760px) --- */
+@media screen and (max-width: 760px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        align-content: left;
+        top: 70px;
+        right: 10px;
+        width: 80%;
+        max-width: 300px;
+        background: #1c1c2d;
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(181,101,247,0.6);
+        z-index: 1050;
+        animation: fly 0.4s ease-out;
+    }
+
+    .menu a {
+        padding: 0.75rem 0;
+        font-size: 1.2rem;
+        color: #eee;
+        text-align: right;
+        transition: transform 0.3s ease;
+    }
+
+    .menu a:hover {
+        transform: translateX(-10px);
+        color: #fff;
+    }
+
+    #menu-toggle:checked + .hamburger + .menu {
+        display: flex;
+    }
+}

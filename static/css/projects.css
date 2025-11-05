@@ -1,0 +1,82 @@
+/* projects.css - Projects Section Styles */
+
+.projects-section {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 1rem;
+    overflow-x: hidden;
+}
+
+/* Overriding general section-heading for project page if needed */
+/* .section-heading and its ::after are kept in base.css */
+ 
+/* Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Card */
+.project-card {
+    background: rgba(40, 40, 60, 0.8);
+    border: 1px solid rgba(181, 101, 247, 0.2);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 15px rgba(181, 101, 247, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(8px);
+}
+    
+.project-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 0 25px rgba(181, 101, 247, 0.35);
+    background: rgba(60, 40, 90, 0.9);
+}
+
+.project-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #e5d9f2;
+    margin-bottom: 0.5rem;
+}
+
+.project-desc {
+    font-size: 0.95rem;
+    color: #c0b3d2;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.project-link {
+    font-weight: 500;
+    color: #bd8eff;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background: rgba(100, 60, 160, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    background: rgba(140, 90, 240, 0.25);
+    border-color: rgba(200, 150, 255, 0.3);
+    box-shadow: 0 0 8px rgba(200, 150, 255, 0.4);
+    color: #e0d6f8;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects-section {
+        padding: 1rem;
+    }
+}

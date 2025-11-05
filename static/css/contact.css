@@ -1,0 +1,137 @@
+/* contact.css - Contact Section Styles */
+
+.contact-section {
+    max-width: 80%;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background: rgba(19, 19, 32, 0.7);
+    border-radius: 2rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(181,101,247,0.3);
+    text-align: center;
+}
+    
+.contact-heading {
+    font-size: 2.75rem;
+    color: #d8b4fe;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+.contact-heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 6rem;
+    height: 4px;
+    background: #b565f7;
+    border-radius: 2px;
+}
+    
+/* Contact Details: arrange cards in a row */
+.contact-info {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+    
+.info-card {
+    flex: 1 1 0; 
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(40,40,60,0.8);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 15px rgba(181,101,247,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+    
+.info-card i {
+    font-size: 1.5rem;
+    color: #b565f7;
+}
+.info-card p a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 20px rgba(181,101,247,0.4);
+}
+
+.info-card:hover p a {
+    color: #fff;
+}
+    
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-weight: 500;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    background: rgba(40,40,60,0.8);
+    color: #eee;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(181,101,247,0.6);
+}
+    
+.btn-submit {
+    width: max-content;
+    align-self: center;
+    padding: 0.75rem 2rem;
+    background: #b565f7;
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(181,101,247,0.5);
+}
+    
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .contact-info {
+        flex-wrap: wrap; 
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .contact-section {
+        padding: 2rem 1rem;
+    }
+    .info-card {
+        justify-content: flex-start;
+    }
+    .contact-section .btn-submit {
+        align-self: center;
+    }
+}
