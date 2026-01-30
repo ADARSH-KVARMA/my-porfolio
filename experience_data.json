@@ -1,0 +1,24 @@
+[
+    {
+        "title": "National Level Hackathon Winner",
+        "subtitle": "Smart India Hackathon",
+        "date": "Feb 2025",
+        "description": "AI solution...",
+        "image": "images/hacthon.png",
+        "skills": [
+            "Python",
+            "Team Leadership",
+            "CV"
+        ],
+        "links": [
+            {
+                "label": "View Certificate",
+                "url": "#"
+            },
+            {
+                "label": "GitHub Repo",
+                "url": "https://github.com/ADARSH-KVARMA"
+            }
+        ]
+    }
+]

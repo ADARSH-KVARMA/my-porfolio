@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="experiences-section" id="experiences">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/experiences.css') }}">
+  
+  <h2 class="section-heading" data-aos="fade-down">My Journey</h2>
+  
+  <div class="experiences-container">
+
+    {% for exp in experiences %}
+    <div class="exp-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+      
+      <div class="exp-content">
+        <div class="exp-header">
+            <span class="exp-date">{{ exp.date }}</span>
+            <h3 class="exp-title">{{ exp.title }}</h3>
+            <h4 class="exp-subtitle">{{ exp.subtitle }}</h4>
+        </div>
+        
+        <p class="exp-desc">
+          {{ exp.description }}
+        </p>
+
+        {% if exp.skills %}
+        <div class="exp-skills">
+            {% for skill in exp.skills %}
+            <span>{{ skill }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if exp.links %}
+        <div class="exp-links">
+            {% for link in exp.links %}
+            <a href="{{ link.url }}" class="exp-link" target="_blank">{{ link.label }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      
+      <div class="exp-image-wrapper">
+        <img src="{{ url_for('static', filename= exp.image) }}" alt="{{ exp.image }} Image" class="exp-image">
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+{% endblock %}

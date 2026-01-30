@@ -1,6 +1,8 @@
 from flask import Flask, render_template
+from getInfo import get_experience_data
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -18,6 +20,14 @@ def about():
 @app.route('/projects')
 def project():
     return render_template('projects.html', title="Project")
+
+@app.route('/experience')
+def experience():
+
+    experiences_data = get_experience_data()
+
+    return render_template('experience.html', experiences=experiences_data)
+
 
 
 if __name__ == '__main__':

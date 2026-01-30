@@ -1,0 +1,225 @@
+/* experiences.css */
+
+/* --- 1. GLOBAL & SCROLLBAR SETTINGS --- */
+/* For Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge, and Firefox */
+html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    scroll-behavior: smooth; /* Smooth scrolling when clicking anchors */
+}
+
+/* --- 2. LAYOUT --- */
+.experiences-section {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 1rem;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+.experiences-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* --- 3. ANIMATION KEYFRAMES --- */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) translateZ(0); /* translateZ keeps GPU active */
+    }
+}
+
+/* --- 4. CARD STYLING --- */
+.exp-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Ensures card height matches content */
+    gap: 2rem;
+    
+    background: rgba(40, 40, 60, 0.6); /* Glass effect */
+    border: 1px solid rgba(181, 101, 247, 0.1);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    
+    /* VISUALS */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* PERFORMANCE & SMOOTHNESS OPTIMIZATIONS */
+    /* 1. Animate specific properties only (No 'all') */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background 0.4s ease, 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+
+    /* 2. Hardware Acceleration Hints */
+    will-change: transform, opacity;
+    
+    /* 3. Layout Containment (Reduces browser calculation load) */
+    contain: layout paint;
+    
+    /* ANIMATION SETUP */
+    opacity: 0; /* Hidden initially */
+    animation: popIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* STAGGERED ANIMATION DELAYS (Waterfall effect) */
+.exp-card:nth-child(1) { animation-delay: 0.1s; }
+.exp-card:nth-child(2) { animation-delay: 0.25s; }
+.exp-card:nth-child(3) { animation-delay: 0.4s; }
+.exp-card:nth-child(4) { animation-delay: 0.55s; }
+.exp-card:nth-child(5) { animation-delay: 0.7s; }
+
+/* HOVER EFFECT */
+.exp-card:hover {
+    transform: translateY(-8px) translateZ(0); /* Lifts up */
+    background: rgba(50, 45, 80, 0.8);
+    border-color: rgba(181, 101, 247, 0.4);
+    box-shadow: 0 15px 35px rgba(181, 101, 247, 0.2);
+}
+
+/* --- 5. TYPOGRAPHY & ELEMENTS --- */
+.exp-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.exp-date {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #b565f7;
+    margin-bottom: 0.5rem;
+}
+
+.exp-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #e5d9f2;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.exp-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #a496c4;
+    margin: 0.3rem 0 1rem 0;
+    font-style: italic;
+}
+
+.exp-desc {
+    font-size: 0.95rem;
+    color: #c0b3d2;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Skills Tags */
+.exp-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.exp-skills span {
+    font-size: 0.75rem;
+    color: #e0d6f8;
+    background: rgba(181, 101, 247, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px; /* Fully rounded pills */
+    border: 1px solid rgba(181, 101, 247, 0.2);
+    transition: background 0.3s ease;
+}
+
+.exp-card:hover .exp-skills span {
+    background: rgba(181, 101, 247, 0.25);
+}
+
+/* Buttons */
+.exp-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; /* Pushes buttons to bottom */
+}
+
+.exp-link {
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(106, 48, 147, 0.8), rgba(160, 68, 255, 0.8));
+    padding: 0.6rem 1.4rem;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(160, 68, 255, 0.3);
+    /* Optimized transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.exp-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(160, 68, 255, 0.5);
+    filter: brightness(1.1);
+}
+
+/* --- 6. IMAGE WRAPPER --- */
+.exp-image-wrapper {
+    flex: 0 0 280px; /* Fixed width */
+    height: auto;
+    min-height: 200px;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+    
+    /* Hardware acceleration for the image container */
+    transform: translateZ(0);
+}
+
+.exp-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    will-change: transform;
+}
+
+/* Zoom image slightly on hover */
+.exp-card:hover .exp-image-wrapper img {
+    transform: scale(1.08);
+}
+
+/* --- 7. MOBILE RESPONSIVENESS --- */
+@media screen and (max-width: 850px) {
+    .exp-card {
+        flex-direction: column-reverse; /* Stack Image on top of Text */
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .exp-image-wrapper {
+        width: 100%;
+        height: 200px; /* Fixed height for mobile banner look */
+        flex: none;
+    }
+    
+    .exp-title {
+        font-size: 1.4rem;
+    }
+}
