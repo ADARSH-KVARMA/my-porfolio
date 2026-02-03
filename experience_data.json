@@ -1,20 +1,17 @@
 [
     {
-        "title": "National Level Hackathon Winner",
-        "subtitle": "Smart India Hackathon",
-        "date": "Feb 2025",
-        "description": "AI solution...",
-        "image": "images/hacthon.png",
+        "title": "Top 5 Finalist - 36-Hour Hackathon",
+        "subtitle": "SynHack Hackathon - VNIT Nagpur",
+        "date": "8-9 Nov, 2025",
+        "description": "Member of a 4-person team in a 36-hour hackathon where we designed and developed a Study Material Management System. Ranked among the Top 5 teams out of 17 working on the same problem statement. Gained hands-on experience in teamwork, problem-solving, rapid prototyping, and collaborative development under time constraints.",
+        "image": "images/synhack.png",
         "skills": [
-            "Python",
-            "Team Leadership",
-            "CV"
+            "Problem Solving",
+            "Team Collaboration",
+            "Rapid Prototyping",
+            "Software Development"
         ],
         "links": [
-            {
-                "label": "View Certificate",
-                "url": "#"
-            },
             {
                 "label": "GitHub Repo",
                 "url": "https://github.com/ADARSH-KVARMA"

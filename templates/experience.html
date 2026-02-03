@@ -7,7 +7,6 @@
   <h2 class="section-heading" data-aos="fade-down">My Journey</h2>
   
   <div class="experiences-container">
-
     {% for exp in experiences %}
     <div class="exp-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
       
@@ -40,12 +39,11 @@
       </div>
       
       <div class="exp-image-wrapper">
-        <img src="{{ url_for('static', filename= exp.image) }}" alt="{{ exp.image }} Image" class="exp-image">
+        <img src="{{ url_for('static', filename=exp.image) }}" alt="{{ exp.title }}" class="exp-image">
       </div>
 
     </div>
     {% endfor %}
-
   </div>
 </section>
 {% endblock %}

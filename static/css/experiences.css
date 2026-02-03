@@ -178,48 +178,62 @@ html, body {
     filter: brightness(1.1);
 }
 
-/* --- 6. IMAGE WRAPPER --- */
+/* --- 6. IMPROVED IMAGE WRAPPER --- */
 .exp-image-wrapper {
-    flex: 0 0 280px; /* Fixed width */
-    height: auto;
-    min-height: 200px;
+    flex: 0 0 320px; /* Slightly wider for better visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
     border-radius: 1rem;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 0px solid rgba(181, 101, 247, 0.2);
     
-    /* Hardware acceleration for the image container */
+    /* Maintains a nice shape regardless of content */
+    aspect-ratio: 16 / 10; 
     transform: translateZ(0);
 }
 
-.exp-image-wrapper img {
+.exp-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* SWITCHED TO CONTAIN: This ensures the whole image is visible 
+       without being cut off. Change to 'cover' if you prefer 
+       full-bleed but cropped. */
+    object-fit: contain; 
+    padding: 10px; /* Gives the image some breathing room */
     transition: transform 0.6s ease;
     will-change: transform;
 }
 
 /* Zoom image slightly on hover */
-.exp-card:hover .exp-image-wrapper img {
-    transform: scale(1.08);
+.exp-card:hover .exp-image {
+    transform: scale(1.05);
 }
 
 /* --- 7. MOBILE RESPONSIVENESS --- */
 @media screen and (max-width: 850px) {
     .exp-card {
-        flex-direction: column-reverse; /* Stack Image on top of Text */
+        flex-direction: column-reverse; /* Text on bottom, Image on top */
         gap: 1.5rem;
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
 
     .exp-image-wrapper {
         width: 100%;
-        height: 200px; /* Fixed height for mobile banner look */
         flex: none;
+        max-height: 250px; /* Prevents image from being too tall on mobile */
     }
     
     .exp-title {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+    }
+    
+    .exp-content {
+        text-align: left;
     }
 }
+
+
+
