@@ -1,4 +1,5 @@
 [
+    
     {
         "title": "Top 5 Finalist - 36-Hour Hackathon",
         "subtitle": "SynHack Hackathon - VNIT Nagpur",
@@ -17,5 +18,19 @@
                 "url": "https://github.com/ADARSH-KVARMA"
             }
         ]
-    }
+    },
+    {
+        "title": "Second Prize - Poster Making Competition",
+        "subtitle": "15th August Programme - VNIT Nagpur",
+        "date": "15 Aug, 2025",
+        "description": "Secured Second Prize in a poster making competition organized as part of the 15th August (Independence Day) programme at VNIT Nagpur. The poster focused on patriotic and national themes and was recognized for creativity and visual impact. Received the award and was honoured by the Chairman of VNIT Nagpur, Shri Madabhushi Madan Gopal, IAS (Retd.).",
+        "image": "images/poster_competition.jpeg",
+        "skills": [
+            "Creative Design",
+            "Visual Communication",
+            "Poster Design",
+            "Artistic Expression"
+        ],
+        "links": []
+    }  
 ]
