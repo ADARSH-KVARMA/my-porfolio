@@ -1,11 +1,26 @@
 [
+    {
+        "title": "Topper Badge - Programming in Python",
+        "subtitle": "IIT Madras - BS in Data Science and Applications",
+        "date": "19 Jan, 2025",
+        "description": "Awarded the Topper Badge for securing the highest grade (S/A) in the Foundation Level course 'Programming in Python' as part of the BS in Data Science and Applications program at IIT Madras. Recognized for outstanding academic performance and strong foundational understanding of Python programming concepts.",
+        "image": "images/iitm-python-topper-badge.svg",
+        "skills": [
+            "Python Programming",
+            "Data Structures",
+            "Problem Solving",
+            "Analytical Thinking",
+            "Programming Fundamentals"
+        ],
+        "links": []
+    },
     
     {
         "title": "Top 5 Finalist - 36-Hour Hackathon",
         "subtitle": "SynHack Hackathon - VNIT Nagpur",
         "date": "8-9 Nov, 2025",
         "description": "Member of a 4-person team in a 36-hour hackathon where we designed and developed a Study Material Management System. Ranked among the Top 5 teams out of 17 working on the same problem statement. Gained hands-on experience in teamwork, problem-solving, rapid prototyping, and collaborative development under time constraints.",
-        "image": "images/synhack.svg",
+        "image": "images/synhack.png",
         "skills": [
             "Problem Solving",
             "Team Collaboration",
