@@ -1,0 +1,429 @@
+/* ═══════════════════════════════════════════════════
+   GALLERY.CSS — Full-Bleed Edition
+   Image covers the entire card. All UI overlaid on top.
+   Colour palette: #0f0f1a · #b565f7
+   ═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Cinzel:wght@400;600&family=Raleway:wght@200;300;400&display=swap');
+
+:root {
+    --clr-void:        #0f0f1a;
+    --clr-surface:     #1a1a2e;
+    --clr-violet:      #b565f7;
+    --clr-violet-dim:  rgba(181, 101, 247, 0.18);
+    --clr-violet-glow: rgba(181, 101, 247, 0.45);
+    --clr-text:        #e8e0f5;
+    --clr-muted:       rgba(232, 224, 245, 0.6);
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-label:   'Cinzel', serif;
+    --font-body:    'Raleway', sans-serif;
+
+    --card-radius:  1.4rem;
+    --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Ambient orbs ── */
+.ambient-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+    animation: orbFloat 14s ease-in-out infinite alternate;
+}
+.orb-1 { width:500px; height:500px; background:radial-gradient(circle,rgba(181,101,247,.12),transparent 70%); top:-120px; left:-160px; }
+.orb-2 { width:380px; height:380px; background:radial-gradient(circle,rgba(120,60,200,.1),transparent 70%);  bottom:8%; right:-100px; animation-duration:20s; animation-delay:-5s; }
+.orb-3 { width:280px; height:280px; background:radial-gradient(circle,rgba(181,101,247,.07),transparent 70%); top:45%; left:48%; animation-duration:24s; animation-delay:-10s; }
+@keyframes orbFloat {
+    0%   { transform: translate(0,0) scale(1); }
+    100% { transform: translate(28px,18px) scale(1.07); }
+}
+
+/* ── Section ── */
+.experiences-section {
+    position: relative;
+    padding: 4rem 2rem 6rem;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+/* ── Section header ── */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.header-line {
+    flex: 1;
+    max-width: 180px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--clr-violet), transparent);
+    opacity: 0.45;
+}
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--clr-text);
+    text-align: center;
+    line-height: 1.15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-shadow: 0 0 40px rgba(181,101,247,.3);
+    letter-spacing: 0.02em;
+}
+.heading-sub {
+    font-family: var(--font-label);
+    font-size: clamp(0.58rem, 1.1vw, 0.72rem);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.38em;
+    color: var(--clr-violet);
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/* ── Cards grid ── */
+.experiences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr));
+    gap: 2.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════
+   GALLERY CARD — just a reveal wrapper, no layout
+   ═══════════════════════════════════════════════════ */
+.gallery-card {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity .7s var(--ease), transform .7s var(--ease);
+    /* CRITICAL: kill any flex/grid that would shrink the slider */
+    display: block;
+    width: 100%;
+}
+.gallery-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════
+   FULL-BLEED SLIDER — IS the card, fills 100% width
+   ═══════════════════════════════════════════════════ */
+.gallery-slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 580px;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background: var(--clr-void);
+    border: 1px solid rgba(181,101,247,.18);
+    transition: border-color .4s ease, box-shadow .4s ease;
+    /* Ensure it never gets squeezed */
+    display: block;
+    flex-shrink: 0;
+}
+.gallery-slider-wrapper:hover {
+    border-color: rgba(181,101,247,.4);
+    box-shadow: 0 0 60px rgba(181,101,247,.1), 0 24px 64px rgba(0,0,0,.6);
+}
+/* Ambient glow pulse */
+.gallery-slider-wrapper.glow {
+    animation: wrapperGlow 5s ease-in-out infinite alternate;
+}
+@keyframes wrapperGlow {
+    0%   { box-shadow: 0 0 20px rgba(181,101,247,.04); }
+    100% { box-shadow: 0 0 50px rgba(181,101,247,.14); }
+}
+
+/* ═══════════════════════════════════════════════════
+   SLIDE  — image fills 100% of the card
+   ═══════════════════════════════════════════════════ */
+.custom-slide {
+    position: absolute;
+    inset: 0;                       /* fill entire wrapper */
+    opacity: 0;
+    visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: opacity .85s var(--ease), transform .85s var(--ease);
+    transform: scale(1.04);
+    display: flex;
+    align-items: flex-end;
+    padding: 2.4rem 2.4rem 5rem;    /* bottom padding clears the nav row */
+}
+.custom-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+    transform: scale(1);
+}
+
+/* ── Gradient overlays (keep text legible) ── */
+.slide-overlay-top {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(15,15,26,.65) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+.slide-overlay-bottom {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 72%;
+    background: linear-gradient(0deg,
+        rgba(15,15,26,.93) 0%,
+        rgba(15,15,26,.55) 45%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Slide text (bottom-left, above overlay) ── */
+.custom-slide-text {
+    position: relative;
+    z-index: 3;
+    max-width: 80%;
+    animation: slideTextIn .7s .15s var(--ease) both;
+}
+@keyframes slideTextIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Gallery / collection sub-label above main title */
+.gallery-card-title {
+    font-family: var(--font-label);
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
+    color: var(--clr-violet);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.fancy-display-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4.5vw, 3.1rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.08;
+    margin-bottom: 0.65rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,.7), 0 0 60px rgba(181,101,247,.2);
+}
+
+.exp-desc {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--clr-muted);
+    line-height: 1.65;
+    letter-spacing: 0.03em;
+}
+
+/* ── Journal accent lines ── */
+.journal-accent {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 1rem;
+}
+.journal-accent span {
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, var(--clr-violet), transparent);
+    opacity: 0.5;
+    border-radius: 1px;
+}
+.ja-long  { width: 130px; }
+.ja-med   { width: 85px;  opacity: 0.35; }
+.ja-short { width: 50px;  opacity: 0.22; }
+
+/* ── View album link (inside slide text) ── */
+.exp-links { margin-top: 1.1rem; }
+.exp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-label);
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clr-violet);
+    text-decoration: none;
+    padding: 0.48rem 1.1rem;
+    border: 1px solid rgba(181,101,247,.35);
+    border-radius: 2rem;
+    background: rgba(181,101,247,.06);
+    backdrop-filter: blur(8px);
+    transition: all .3s ease;
+}
+.exp-link:hover {
+    background: rgba(181,101,247,.15);
+    border-color: var(--clr-violet);
+    box-shadow: 0 0 18px rgba(181,101,247,.2);
+    gap: 0.8rem;
+}
+.exp-link svg { transition: transform .3s ease; }
+.exp-link:hover svg { transform: translateX(3px); }
+
+/* ═══════════════════════════════════════════════════
+   TOP HUD  (collection badge + counter)
+   ═══════════════════════════════════════════════════ */
+.slide-hud-top {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    right: 1.2rem;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.collection-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-label);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--clr-text);
+    background: rgba(15,15,26,.6);
+    backdrop-filter: blur(10px);
+    padding: 0.32rem 0.85rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(181,101,247,.25);
+}
+.collection-num  { color: var(--clr-violet); font-weight: 600; font-size: 0.75rem; }
+.collection-sep  { opacity: 0.4; }
+.collection-word { opacity: 0.7; letter-spacing: 0.2em; }
+
+.slide-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.28rem;
+    font-family: var(--font-label);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--clr-muted);
+    background: rgba(15,15,26,.6);
+    backdrop-filter: blur(10px);
+    padding: 0.32rem 0.75rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(181,101,247,.2);
+}
+.counter-current { color: var(--clr-violet); font-weight: 600; }
+.counter-sep     { opacity: 0.4; }
+
+/* ═══════════════════════════════════════════════════
+   NAVIGATION ROW  (arrows + dots)
+   ═══════════════════════════════════════════════════ */
+.gallery-nav {
+    position: absolute;
+    bottom: 1.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.nav-arrow {
+    background: rgba(15,15,26,.65);
+    border: 1px solid rgba(181,101,247,.4);
+    color: var(--clr-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    transition: all .25s ease;
+    padding: 0;
+    flex-shrink: 0;
+}
+.nav-arrow:hover {
+    background: var(--clr-violet);
+    border-color: var(--clr-violet);
+    box-shadow: 0 0 20px var(--clr-violet-glow), 0 0 40px rgba(181,101,247,.2);
+    transform: scale(1.1);
+}
+
+.custom-dots { display: flex; gap: 7px; align-items: center; }
+.custom-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.22);
+    cursor: pointer;
+    transition: all .3s ease;
+    border: 1px solid transparent;
+}
+.custom-dot:hover  { background: rgba(181,101,247,.5); }
+.custom-dot.active { background: var(--clr-violet); width: 22px; border-radius: 3px; box-shadow: 0 0 8px var(--clr-violet-glow); }
+
+/* ── Progress bar ── */
+.slide-progress-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: rgba(181,101,247,.1);
+    z-index: 10;
+}
+.slide-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--clr-violet), rgba(181,101,247,.4));
+    transition: width .5s var(--ease);
+    box-shadow: 0 0 8px var(--clr-violet-glow);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .gallery-slider-wrapper { height: 480px; }
+    .custom-slide           { padding: 1.6rem 1.6rem 4.5rem; }
+    .custom-slide-text      { max-width: 92%; }
+    .nav-arrow              { width: 36px; height: 36px; }
+    .experiences-section    { padding: 2.5rem 1rem 4rem; }
+}
+@media (max-width: 480px) {
+    .gallery-slider-wrapper { height: 420px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   OVERRIDE — kill any inherited flex/grid from
+   experiences.css that would push image to one side
+   ═══════════════════════════════════════════════════ */
+.gallery-card,
+.gallery-card .exp-content,
+.gallery-card .exp-card-inner,
+.gallery-card .card-body {
+    display: block !important;
+    flex-direction: unset !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.gallery-card .gallery-slider-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: unset !important;
+}

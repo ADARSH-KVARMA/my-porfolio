@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-from getInfo import get_experience_data
+from flask import Flask, json, render_template
 
 app = Flask(__name__)
 
@@ -23,12 +22,16 @@ def project():
 
 @app.route('/experience')
 def experience():
-
-    experiences_data = get_experience_data()
-
+    with open('experience_data.json', 'r') as f:
+        experiences_data = json.load(f)
     return render_template('experience.html', experiences=experiences_data)
 
+@app.route('/gallery')
+def gallery():
+    with open('gallery_data.json', 'r') as f:
+        data = json.load(f)
 
+    return render_template('gallery.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,87 @@
+[
+    {
+        "gallery_title": "Charlizard's Summer Adventures",
+        "slides": [
+            {
+                "id": 1,
+                "title": "Recently Visited to<br>the Pikachu City",
+                "description": "It was a wonderful experience exploring the electric trails and sunset vistas.",
+                "image_url": "https://media1.giphy.com/media/Qglpf2QiuCKMU/giphy.gif",
+                "text_color": "#ffedbb"
+            },
+            {
+                "id": 2,
+                "title": "The Whispering<br>Pine Forest",
+                "description": "Getting lost in the tall trees was exactly what the soul needed this summer.",
+                "image_url": "https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUydjVveHBlcmpmbWgxc2N0bmpuZDZ3NnEwdnNicXcza2JnZTVrajliayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/6nWT5GyxsmAoM/giphy.gif",
+                "text_color": "#e2f3e1"
+            },
+            {
+                "id": 3,
+                "title": "Golden Hour<br>at the Ridge",
+                "description": "Watching the sun dip below the horizon from the highest peak in the valley.",
+                "image_url": "https://i.pinimg.com/originals/c9/19/c9/c919c95963e2706e7737a5c90b65e5ea.gif",
+                "text_color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "gallery_title": "Japan Exploration",
+        "slides": [
+            {
+                "id": 4,
+                "title": "Neon Nights in<br>Tokyo District",
+                "description": "The city never sleeps, and neither does the inspiration found in these streets.",
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4FichgawfwrnY9Iqrg8W7piwIlxkc-DSthg&s",
+                "text_color": "#ff99cc"
+            },
+            {
+                "id": 5,
+                "title": "Midnight Rain<br>Reflections",
+                "description": "The way the light hits the pavement after a storm is pure cinematic magic.",
+                "image_url": "https://www.simlocal.com/cms-media/is%20japan%20worth%20visiting.jpg",
+                "text_color": "#a0e9ff"
+            }
+        ]
+    },
+    {
+        "gallery_title": "Marvels",
+        "slides": [
+            {
+                "id": 6,
+                "title": "The Minimalist<br>Concrete Jungle",
+                "description": "Studying the sharp lines and brutalist beauty of modern civic design.",
+                "image_url": "https://lumiere-a.akamaihd.net/v1/images/au_portrait_grid_marvel_logo_2025_mobile_1ad65200.png",
+                "text_color": "#ffffff"
+            },
+            {
+                "id": 7,
+                "title": "Renaissance<br>Redefined",
+                "description": "A trip through history, looking at the intricate details of 15th-century halls.",
+                "image_url": "https://waltscomicshop.com/cdn/shop/collections/marvel-123337.jpg?v=1706737955",
+                "text_color": "#fdf5e6"
+            },
+            {
+                "id": 7,
+                "title": "Renaissance<br>Redefined",
+                "description": "A trip through history, looking at the intricate details of 15th-century halls.",
+                "image_url": "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/CCC3F8712F781DC1ECDDC406924EF0569A30DB0F0BF628CA9EAF60B97C9ABC4B/compose?aspectRatio=1.78&format=webp&width=1600",
+                "text_color": "#fdf5e6"
+            },
+            {
+                "id": 7,
+                "title": "Renaissance<br>Redefined",
+                "description": "A trip through history, looking at the intricate details of 15th-century halls.",
+                "image_url": "https://parade.com/.image/c_fill,w_1200,h_1200,g_faces:center/MTk3MzM3ODU4NTU2NTY4Nzc1/marveldisney.jpg",
+                "text_color": "#fdf5e6"
+            },
+            {
+                "id": 7,
+                "title": "Renaissance<br>Redefined",
+                "description": "A trip through history, looking at the intricate details of 15th-century halls.",
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnZUFVg6maIrgmMDilNmLJbNxd9dnjjjC_OQ&s",
+                "text_color": "#fdf5e6"
+            }
+        ]
+    }
+]
